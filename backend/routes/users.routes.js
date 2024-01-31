@@ -42,7 +42,7 @@ userRouter.post("/login", async(req, res)=> {
             const passwordMatch = await bcrypt.compare(passwordSentByUser, passwordFromDB);
 
             if (passwordMatch) {
-                const token = jwt.sign({ email, userId }, process.env.JWT_SECRET || 'avenger');
+                const token = jwt.sign({ email, role }, process.env.JWT_SECRET || 'avenger');
                 res.status(200).json({ "msg": "Login Successful", "token": token });
             } else {
                 res.status(401).json({ "msg": "Incorrect password" });
