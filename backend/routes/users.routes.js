@@ -37,7 +37,7 @@ userRouter.post("/login", async(req, res)=> {
         if (user) {
             let passwordSentByUser = password
             let passwordFromDB = user.password
-            let userId = user._id
+            let role = user.role
 
             const passwordMatch = await bcrypt.compare(passwordSentByUser, passwordFromDB);
 

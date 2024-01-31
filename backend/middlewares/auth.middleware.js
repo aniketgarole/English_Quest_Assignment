@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require("dotenv").config()
 
 
 const auth = async(req, res, next) => {
@@ -8,7 +9,7 @@ const auth = async(req, res, next) => {
         if (wholeToken) {
             const token = wholeToken.split(" ")[1]
             console.log(token)
-            jwt.verify(token, 'avenger', function(err, decoded) {
+            jwt.verify(token, process.env.JWT_SECRET || 'avenger', function(err, decoded) {
                 if (decoded) {
                     req.body.role = decoded.role
                     next()

@@ -53,6 +53,7 @@ booksRouter.post("/create", async(req, res) => {
         bookToAdd.title = reqBody.title
         bookToAdd.author = reqBody.author
         const role = req.body.role
+        console.log("role", role)
 
         if (role === "CREATOR") {
             const book = new BookModel(bookToAdd)
@@ -67,12 +68,12 @@ booksRouter.post("/create", async(req, res) => {
 })
 
 
-booksRouter.post("/delete/:id", async(req, res) => {
+booksRouter.delete("/delete/:id", async(req, res) => {
     try {
         const role = req.body.role
         const {id} = req.params
         if (role === "CREATOR") {
-            await Book.findByIdAndDelete(id);
+            await BookModel.findByIdAndDelete(id);
             res.status(200).json({ "msg": 'Book deleted successfully' });
 
         } else {
@@ -87,3 +88,4 @@ booksRouter.post("/delete/:id", async(req, res) => {
 
 
 
+module.exports = {booksRouter}

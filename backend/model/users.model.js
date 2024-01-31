@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
 
 
 
-const UserModel = mongoose.model("post", userSchema)
+const UserModel = mongoose.model("user", userSchema)
 
 
 module.exports = {UserModel}
