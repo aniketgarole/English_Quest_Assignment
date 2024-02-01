@@ -1,0 +1,25 @@
+.main-container {
+    border-bottom: 1px solid gray;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+span {
+    display: block;
+}
+
+.main-container span:nth-child(1) {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: blueviolet
+    
+}
+
+.main-container span:nth-child(2) {
+   
+    color: gray;
+    
+}

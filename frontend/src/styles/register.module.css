@@ -17,7 +17,7 @@
     margin-bottom: 20px;
 }
 
-form {
+.main-container form {
     display: flex;
     flex-direction: column;
 }
