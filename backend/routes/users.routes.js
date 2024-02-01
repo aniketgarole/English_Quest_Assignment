@@ -8,7 +8,6 @@ const userRouter = express.Router()
 
 userRouter.post("/register", async(req, res)=> {
     const {password} = req.body
-    console.log(req.body)
 
     try {
         bcrypt.hash(password, 5, async function(err, hash) {
@@ -17,7 +16,6 @@ userRouter.post("/register", async(req, res)=> {
                 await user.save()
                 res.status(200).json({"msg": "New user has been registered"})
             } else if (err) {
-                console.log("its in error")
                 res.status(200).json({"msg": err.message})
             }
         });
