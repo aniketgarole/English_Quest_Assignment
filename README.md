@@ -21,7 +21,7 @@ https://englishquest.netlify.app
 ### To Run Backend Locally
 
 1. ##### Clone the project
-    * git clone (https://github.com/aniketgarole/English_Quest_Assignment.git)
+    * git clone [https://github.com/aniketgarole/English_Quest_Assignment.git](https://github.com/aniketgarole/English_Quest_Assignment.git)
 
 2. ##### Go to project directory
     * cd backend
