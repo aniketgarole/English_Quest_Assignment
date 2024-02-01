@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux'
 
 const Table = ({books, getBooks}) => {
 
-    const token = useSelector(store => store.authReducer.token)
+    // const token = useSelector(store => store.authReducer.token)
+    const token = localStorage.getItem("EnglishQuestToken")
+
 
     const deleteBook = async (id) => {
         try {

@@ -20,7 +20,7 @@ const Login = () => {
   
       let formData = {email, password}
       let res =  await dispatch(getAuth(formData))
-
+      console.log(res)
       if (res.type === "LOGIN_SUCCESS") {
         alert("Login Successful")
         navigate("/")

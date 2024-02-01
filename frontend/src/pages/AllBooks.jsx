@@ -32,7 +32,8 @@ const AllBooks = () => {
       })
     : (background = {});
 
-  const token = useSelector((store) => store.authReducer.token);
+//   const token = useSelector((store) => store.authReducer.token);
+  const token = localStorage.getItem("EnglishQuestToken")
 
   const handleFilter = async (e) => {
     e.preventDefault();
@@ -45,6 +46,7 @@ const AllBooks = () => {
           },
         }
       );
+      
       setBooks(res.data.books);
       setSortBy("");
     } catch (error) {
@@ -79,6 +81,7 @@ const AllBooks = () => {
       });
 
       setBooks(res.data.books);
+
     } catch (error) {
       console.log(error);
     }
@@ -150,6 +153,7 @@ const AllBooks = () => {
       });
     }
   }, [filterValue, filterby, sortBy]);
+
 
   return (
     <div>

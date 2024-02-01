@@ -8,7 +8,9 @@ const Modal = ({getBooks, setIsOpen}) => {
     const [author, setAuthor] = useState("")
     
 
-    const token = useSelector(store => store.authReducer.token)
+    // const token = useSelector(store => store.authReducer.token)
+    const token = localStorage.getItem("EnglishQuestToken")
+
 
     const addBook = async(e) => {
         e.preventDefault()

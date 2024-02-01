@@ -5,8 +5,10 @@ export const PrivateRoutes = ({children}) => {
 
   const isAuth = useSelector(store => store.authReducer.isAuth)
   const location = useLocation()
+  const token = localStorage.getItem("EnglishQuestToken")
 
-  if (!isAuth) {
+
+  if (!token) {
     return <Navigate to="/login" state={location.pathname}/>
   }
 
