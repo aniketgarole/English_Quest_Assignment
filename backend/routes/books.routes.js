@@ -8,7 +8,7 @@ booksRouter.get("/", async(req,res)=> {
     
    try {
         // Extract filtering and sorting parameters from the query string
-        const { title, author, sortBy, old, new: newer } = req.query;
+        const { filterBy, filterValue, sortBy, old, new: newer } = req.query;
 
         const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
 
@@ -16,12 +16,12 @@ booksRouter.get("/", async(req,res)=> {
         let baseQuery = {};
 
         // Add filtering if titleFilter is provided
-        if (title) {
-            baseQuery.title = { $regex: new RegExp(title, 'i') }; // Case-insensitive regex for title filtering
+        if (filterBy === "title") {
+            baseQuery.title = { $regex: new RegExp(filterValue, 'i') }; 
         }
 
-        if (author) {
-            baseQuery.author = { $regex: new RegExp(author, 'i') };
+        if (filterBy === "author") {
+            baseQuery.author = { $regex: new RegExp(filterValue, 'i') };
 
         }
 
@@ -37,7 +37,7 @@ booksRouter.get("/", async(req,res)=> {
 
 
         // Get books based on the query and apply sorting
-        const books = await BookModel.find(baseQuery).sort(sortBy === 'oldest' ? 'createdAt' : '-createdAt');
+        const books = await BookModel.find(baseQuery).sort(sortBy === 'oldest' ? '-createdAt' : 'createdAt');
 
         res.status(200).json({ "msg": "Books retrieved successfully", "books": books });
     } catch (error) {
