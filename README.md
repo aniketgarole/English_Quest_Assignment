@@ -6,31 +6,31 @@ https://englishquest.netlify.app
 To Run Frontend Locally
 
 1. Clone the project
-    git clone https://github.com/aniketgarole/English_Quest_Assignment.git
+git clone https://github.com/aniketgarole/English_Quest_Assignment.git
 
 2. Go to project directory
-    cd frontend
+cd frontend
 
 3. Install dependencies
-    npm install
+npm install
 
 4. Start the server
-    npm run start
+npm run start
 
 
 To Run Backend Locally
 
 1. Clone the project
-    git clone https://github.com/aniketgarole/English_Quest_Assignment.git
+git clone https://github.com/aniketgarole/English_Quest_Assignment.git
 
 2. Go to project directory
-    cd backend
+cd backend
 
 3. Install dependencies
-    npm install
+npm install
 
 4. Start the server
-    npm run start 
+npm run start 
 
 
 
