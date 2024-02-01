@@ -22,10 +22,10 @@ const Register = () => {
 
     try {
       const formData = {userName, email, password, role}
-      // if (formData.email === "" || formData.password === "" || formData.userName === "" || formData.role === "") {
-      //   alert("please fill the proper information")
-      //   return 
-      // }
+      if (formData.email === "" || formData.password === "" || formData.userName === "" || formData.role === "") {
+        alert("please fill the proper information")
+        return 
+      }
       const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/register`, formData)
       alert(res.data.msg)
       navigate("/login")

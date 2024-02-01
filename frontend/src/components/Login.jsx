@@ -19,10 +19,10 @@ const Login = () => {
 
   
       let formData = {email, password}
-      // if (formData.email === "" || formData.password === "") {
-      //   alert("please fill the proper information")
-      //   return 
-      // }
+      if (formData.email === "" || formData.password === "") {
+        alert("please fill the proper information")
+        return 
+      }
       let res =  await dispatch(getAuth(formData))
       if (res.type === "LOGIN_SUCCESS") {
         alert("Login Successful")
