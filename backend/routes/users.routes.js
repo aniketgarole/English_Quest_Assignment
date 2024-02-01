@@ -45,7 +45,7 @@ userRouter.post("/login", async(req, res)=> {
 
             if (passwordMatch) {
                 const token = jwt.sign({ email, role, userId }, process.env.JWT_SECRET || 'avenger');
-                res.status(200).json({ "msg": "Login Successful", "token": token , "userName": user.userName, "role": user.role});
+                res.status(200).json({ "msg": "Login Successful", "token": token , "userName": user.userName, "role": user.role, "userId": user._id});
             } else {
                 res.status(401).json({ "msg": "Incorrect password" });
             }
