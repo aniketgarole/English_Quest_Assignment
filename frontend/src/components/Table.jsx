@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux'
 
 const Table = ({books, getBooks}) => {
 
-    // const token = useSelector(store => store.authReducer.token)
+    const userId = useSelector(store => store.authReducer.userId)
+    const role = useSelector(store => store.authReducer.role)
     const token = localStorage.getItem("EnglishQuestToken")
-
+    
 
     const deleteBook = async (id) => {
         try {
@@ -38,17 +39,32 @@ const Table = ({books, getBooks}) => {
                     <th>Title</th>
                     <th>Author</th>
                     <th>Added On</th>
+                    {
+                        role === "CREATOR"
+                        ? <th>Action</th>
+                        : ""
+                    }
+                    
                 </tr>
             </thead>
             <tbody>
             {
         books?.map((item) => {
             const formatedDate = formatDate(item?.createdAt)
+            
             return <tr key={item._id}>
             <td>{item?.title}</td>
             <td>{item?.author}</td>
             <td>{formatedDate}</td>
-            <td><span onClick={() => deleteBook(item?._id)} style={{cursor:"pointer"}}>Delete</span></td>
+            {
+                
+               role === "CREATOR" && userId === item?.userId 
+                ? <td><span onClick={() => deleteBook(item?._id)} style={{cursor:"pointer"}}>Delete</span></td>
+                : role === "CREATOR" && userId !== item?.userId 
+                ? <td><span  style={{cursor:"not-allowed"}}>Not authorized to delete</span></td>
+                : ""
+            }
+            
         </tr>
         })
     }

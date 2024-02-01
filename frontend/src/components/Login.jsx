@@ -19,8 +19,11 @@ const Login = () => {
 
   
       let formData = {email, password}
+      // if (formData.email === "" || formData.password === "") {
+      //   alert("please fill the proper information")
+      //   return 
+      // }
       let res =  await dispatch(getAuth(formData))
-      console.log(res)
       if (res.type === "LOGIN_SUCCESS") {
         alert("Login Successful")
         navigate("/")
